@@ -71,4 +71,3 @@ while True:
         window.close()
         break
 
-    #test comment
