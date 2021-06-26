@@ -2,7 +2,3 @@ env
 __pycache__/
 keys.py
 .DS_Store
-bin/
-lib/
-pyvenv.cfg
-Label_printer_with_templates.py
