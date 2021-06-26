@@ -2,8 +2,6 @@ env
 __pycache__/
 keys.py
 .DS_Store
-Label_printer_with_templates.py
-METRC-LOGO.png
 bin/
 lib/
 pyvenv.cfg
