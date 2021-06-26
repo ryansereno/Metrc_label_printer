@@ -5,3 +5,4 @@ keys.py
 bin/
 lib/
 pyvenv.cfg
+Label_printer_with_templates.py
