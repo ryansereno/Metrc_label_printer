@@ -16,9 +16,7 @@ window = sg.Window("Metrc Label Printer", layout2, keep_on_top=True)
 error_window = sg.Window("Error", error_layout, keep_on_top=True)
 
 def API_call(x):        #add User key parameter
-    # software_key = "ByDuekpGQ8Uyy73vo1en1QslAvJXqMWCe53VVdyBKXedSuxa"
     software_key = keys.soft()
-    # user_key = "sK8zzfHHSQaIYMDujGXu09M1zdZ1vAEC80GtBxfGxMpOwoQe"
     user_key = keys.user()
     UID_URL = f"https://api-ca.metrc.com/packages/v1/{x}?licenseNumber=CDPH-10003394"
     r = requests.get(UID_URL, auth=HTTPBasicAuth(software_key, user_key))
