@@ -15,10 +15,10 @@ error_layout =[[sg.Text("Invalid UID", text_color="white", font=("Helvetica", 13
 window = sg.Window("Metrc Label Printer", layout2, keep_on_top=True)
 error_window = sg.Window("Error", error_layout, keep_on_top=True)
 
-def API_call(x):        #add User key parameter
-    software_key = keys.soft()
+def API_call(x):        #add User key parameter and license number variable
+    software_key = keys.software()
     user_key = keys.user()
-    UID_URL = f"https://api-ca.metrc.com/packages/v1/{x}?licenseNumber=CDPH-10003394"
+    UID_URL = f"https://api-ca.metrc.com/packages/v1/{x}?licenseNumber=CDPH-10003394"   #add license number field
     r = requests.get(UID_URL, auth=HTTPBasicAuth(software_key, user_key))
     json_resp = r.json()
     resp_string = json.dumps(json_resp, indent=2)
@@ -39,7 +39,7 @@ def Zebra_print(UID, Quantity, Item, BatchNumber):      #add template parameter 
             "^FO50,140^FD" + Item_line_two() + "^FS" \
             "^FO50,190^FD" + UID + "^FS^FO50,240^FDTare:^FS^FO50,290^FDTotal Qnty: " + Quantity + "^FS" \
             "^GB20,20,2,B,1^BCN,40,N,N,N,N^CFA,30" \
-            "^FO100,350,0^BY2,2,20^FD" + UID + "^FS" \
+            "^FO210,350,0^BY2^BC,30,N,N,N,A^FD" + UID + "^FS" \
             "^FO550,75,0^GB40,40,5,B,1^FS^FO600,85^FDTested^FS" \
             "^FO550,125,0^GB40,40,5,B,1^FS" \
             "^FO600,135^FDFormulated^FS" \
@@ -70,4 +70,3 @@ while True:
     if event == sg.WIN_CLOSED:
         window.close()
         break
-
