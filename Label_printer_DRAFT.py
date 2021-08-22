@@ -18,7 +18,7 @@ error_window = sg.Window("Error", error_layout, keep_on_top=True)
 def API_call(x):        #add User key parameter and license number variable
     software_key = keys.software()
     user_key = keys.user()
-    UID_URL = f"https://api-ca.metrc.com/packages/v1/{x}?licenseNumber=CDPH-10003394"   #add license number field
+    UID_URL = f"https://api-ca.metrc.com/packages/v1/{x}?licenseNumber={keys.license()}"   #add license number field
     r = requests.get(UID_URL, auth=HTTPBasicAuth(software_key, user_key))
     json_resp = r.json()
     resp_string = json.dumps(json_resp, indent=2)
