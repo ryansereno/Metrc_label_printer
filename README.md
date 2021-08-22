@@ -10,4 +10,5 @@
 <p>Due to Metrc's limits on api calls, you will need to apply for your own software key.</p>
 <p>Insert your software key, user key, and license number into the code.</p>
 <p>Setup your printer with your computer, either with its native drivers or a CUPS server; insert the name of your printer into the code.</p>
+<p>Dependency libraries: PySimpleGUI, Zebra, and requests</p>
 <p>&nbsp;</p>
